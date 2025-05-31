@@ -11,10 +11,18 @@ int main(){
     cout << "Matriz A:\n" <<A<<endl<<endl;
 
     // Transposta
-    cout << "Transporta A:\n" << A.transpose() << endl<<endl;
+    cout << "Transposta A:\n" << A.transpose() << endl<<endl;
 
     // Determinante
     cout << "Determinante A:\n" << A.determinant() << endl<<endl;
+
+    // Inversa (se existir)
+
+    if(A.determinant() != 0){
+        cout << "Inversa de A:\n" << A.inverse() <<endl<<endl;
+    }else{
+        cout << "Matriz nao invertivel!"<<endl<<endl;
+    }
 
     return 0;
 }
