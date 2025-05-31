@@ -22,5 +22,9 @@ int main(){
     Matrix2d resultado2 = A.cwiseProduct(B);
     cout << "A * B:\n" << resultado2 << "\n";
     cout << "==========================================================="<<endl;
+
+    cout << "\nMultiplicacao | Matriz * Escalar |\n";
+    Matrix2d resultado3 = 3 * A;// A * 3
+    cout << "3 * A:\n" << resultado3 << endl;
     return 0;
 }
