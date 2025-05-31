@@ -24,5 +24,10 @@ int main(){
         cout << "Matriz nao invertivel!"<<endl<<endl;
     }
 
+    // Vectore
+    Vector2cd v;
+    v<< 1, 4;
+    cout << "Vector de v:\n"<<v<<endl<<endl;
+
     return 0;
 }
