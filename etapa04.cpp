@@ -5,7 +5,7 @@ using namespace Eigen;
 using namespace std;
 
 int main(){
-    cout << "Parte.1 | Matrix * Vetor |"<<endl;
+    cout << "Multiplicacao | Matrix * Vetor |"<<endl;
 
     Matrix2d A = (Matrix2d() << 2,3,4,5).finished();
     Vector2d V = (Vector2d() << 3,6).finished();
@@ -14,7 +14,13 @@ int main(){
 
     cout << "Matriz A:\n" << A << "\n\n";
     cout << "Vetor B:\n" << V << "\n\n";
-    cout << "Resultado A * V:\n" << resultado1 << "\n\n";
+    cout << "Resultado A * V:\n" << resultado1 << "\n";
+    cout << "==========================================================="<<endl;
 
+    cout <<"\nMultiplicao | Matrix * Matriz |"<<endl;
+    Matrix2d B = (Matrix2d() << 2,3,4,5).finished();
+    Matrix2d resultado2 = A.cwiseProduct(B);
+    cout << "A * B:\n" << resultado2 << "\n";
+    cout << "==========================================================="<<endl;
     return 0;
 }
