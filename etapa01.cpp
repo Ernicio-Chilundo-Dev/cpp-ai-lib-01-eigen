@@ -7,7 +7,7 @@ using namespace std;
 int main(){
     // Matrix 2 x 2
     Matrix2d A;
-    A << 4,1,3,2;
+    A << 1,2,3,4;
     cout << "Matriz A:\n" <<A<<endl<<endl;
 
     // Transposta
@@ -25,9 +25,16 @@ int main(){
     }
 
     // Vectore
-    Vector2cd v;
-    v<< 1, 4;
+    Vector2d v;
+    v<< 1, 2;
     cout << "Vector de v:\n"<<v<<endl<<endl;
+
+    // Multiplicacao matriz * vector
+
+    Vector2d resultado = A * v;
+    
+
+    cout << "A * v=\n" << resultado << endl<<endl;
 
     return 0;
 }
