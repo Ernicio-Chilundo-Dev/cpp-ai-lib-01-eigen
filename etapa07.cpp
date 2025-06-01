@@ -14,5 +14,18 @@ int main(){
     cout << "Matriz A:\n" << A << "\n\n";
     cout << "Matriz B:\n" << B << "\n\n";
     cout << "Soma A + B:\n" << soma << "\n\n";
+
+    cout << "Detalhes das somas:"<<endl;
+
+    for (int i = 0; i < A.rows(); ++i)
+    {
+        for (int j = 0; j < A.cols() ; ++j)
+        {
+            cout << "A("<<i<<","<<j<<") + B("<<i<<","<<j<<") = "
+                << A(i,j)  << " + " << B(i,j) << "  = " <<  soma(i,j)<<"\n";
+        }
+        
+    }
+    
     return 0;
 }
