@@ -20,7 +20,8 @@ int main(){
     {
         for (int j = 0; j < A.cols(); ++j)
         {
-            cout << "A("<< i << "," << j <<") * B("<<i << "," << j << ") =" << A(i,j) << "*" << B(i,j) << " = " << resultado << "\n";
+            cout << "A("<< i << "," << j <<") * B("<<i << "," << j << ") =" 
+                << A(i,j) << "*" << B(i,j) << " = " << resultado(i,j) << "\n";
         }
         
     }
