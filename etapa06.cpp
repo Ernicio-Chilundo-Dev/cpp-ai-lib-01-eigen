@@ -14,5 +14,17 @@ int main(){
     cout << "Matriz B:\n" << B << "\n\n";
     cout << "Resultado de produto elemento a elemento (A.cwiseProduct(B)):\n" << resultado << "\n\n";
 
+    cout << "Detalhes das multiplicacoes\n";
+
+    for (int i = 0; i < A.rows(); ++i)
+    {
+        for (int j = 0; j < A.cols(); ++j)
+        {
+            cout << "A("<< i << "," << j <<") * B("<<i << "," << j << ") =" << A(i,j) << "*" << B(i,j) << " = " << resultado << "\n";
+        }
+        
+    }
+    
+
     return 0;
 }
