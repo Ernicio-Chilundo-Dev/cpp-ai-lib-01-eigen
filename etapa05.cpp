@@ -28,6 +28,12 @@ int main(){
 
     cout << "Matriz modificada:\n"<< A << endl<<endl;
 
+    cout << "*****************************************************************************"<<endl;
+
+    // Trocar linha 0 por linha 2
+    A.row(0).swap(A.row(2));
+    cout << "Apos trocar as linhas 0 e 2:\n"<<A<<endl;
+
 
     return 0;
 
