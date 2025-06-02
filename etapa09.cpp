@@ -21,10 +21,10 @@ int main(){
 
     if(arquivo.is_open()){
         arquivo << "Resultado A + B:\n" << A + B << endl;
-        cout << "Arquivo criado com nome resultado\n";
         arquivo.close();
+        cout << "resultado salvo no resultado\n";
     }else{
-        cout << "Erro arquivo nao criado\n";
+        cout << "Erro ao abrir o aquivo\n";
     }
     return 0;
 }
