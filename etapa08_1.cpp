@@ -6,7 +6,7 @@ using namespace std;
 using namespace Eigen;
 
 void separador(){
-    cout << "\n---------------------------------------------------------------------------------\n";
+    cout << "\n----------------------------------------------------------------------------\n";
 }
 
 void mostrarResultado(const string& titulo, const Matrix3d& resultado){
@@ -78,7 +78,7 @@ int main(){
         case 3: produtoElemento(A,B); break;
         case 4: multiplicacaoMatricial(A,B); break;
         case 5: multiplicacaoEscalar(A); break;
-        case 0: cout << "Saindo..."; break;
+        case 0: cout << "Saindo...\n"; break;
         default: cout << "Opcao invalida! Tente  novamente."; break;
         }
         
