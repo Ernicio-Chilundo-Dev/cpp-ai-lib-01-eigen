@@ -20,7 +20,17 @@ int main(){
     arquivo >> linhas>> colunas;
     MatrixXd matriz;
 
-    
+    for(int i =0; i< linhas; ++i){
+        for (int j = 0; j < colunas; ++j)
+        {
+            arquivo>>matriz(i,j);
+        }
+        
+    }
+
+    arquivo.close();
+    cout << "Matriz carregada com sucesso:\n" << matriz <<endl;
+
 
     return 0;
 }
