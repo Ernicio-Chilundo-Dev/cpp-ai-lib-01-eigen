@@ -8,7 +8,6 @@ using namespace Eigen;
 
 int main(){
     ifstream arquivo("matriz.txt");
-
     string linha;
 
     if(!arquivo.is_open()){
@@ -16,9 +15,9 @@ int main(){
         return 1;
     }
 
-    int linhas,colunas;
+    int linhas, colunas;
     arquivo >> linhas>> colunas;
-    MatrixXd matriz;
+    MatrixXd matriz(linhas,colunas);
 
     for(int i =0; i< linhas; ++i){
         for (int j = 0; j < colunas; ++j)
