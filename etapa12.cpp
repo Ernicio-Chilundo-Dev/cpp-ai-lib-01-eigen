@@ -20,5 +20,8 @@ int main(){
         cout << "Matriz nao invertivel";
     }
 
+    FullPivLU<Matrix3d> lu_decomp(A);
+    cout << "Posto (rank) de A:\n" <<  lu_decomp.rank() << "\n\n";
+
     return 0;
 }
