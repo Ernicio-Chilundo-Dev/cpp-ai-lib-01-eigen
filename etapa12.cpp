@@ -14,5 +14,11 @@ int main(){
     double det = A.determinant();
     cout << "Determinante A:\n" << det << "\n\n";
 
+    if (det !=0){
+        cout << "Inversa A:\n"  << A.inverse() << "\n\n";
+    }else{
+        cout << "Matriz nao invertivel";
+    }
+
     return 0;
 }
