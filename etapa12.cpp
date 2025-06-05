@@ -9,8 +9,10 @@ int main(){
 
     cout << "Matriz A:\n"<< A<<endl<<endl;
 
-    cout << "Transpose A:\n" << A.transpose()<<endl;
+    cout << "Transpose A:\n" << A.transpose()<<endl<<endl;
 
+    double det = A.determinant();
+    cout << "Determinante A:\n" << det << "\n\n";
 
     return 0;
 }
