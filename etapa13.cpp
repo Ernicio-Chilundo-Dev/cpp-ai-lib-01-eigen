@@ -2,7 +2,7 @@
 #include <Eigen/Dense>
 
 using namespace std;
-using namespace Eige;
+using namespace Eigen;
 
 int main(){
 
