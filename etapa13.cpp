@@ -20,6 +20,9 @@ int main(){
     cout << "x = " << x(0)<<endl;
     cout << "y = " << x(1) <<endl;
 
+    // verficacao
+    Vector2d resultado = A * x;
+    cout << "Verficacao de A * x:\n" << resultado << endl;
 
     return 0;
 }
