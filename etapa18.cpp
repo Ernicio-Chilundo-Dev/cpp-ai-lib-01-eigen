@@ -31,6 +31,20 @@ int main(){
     MatrixXd S_k = svd.singularValues().head(k).asDiagonal();
     MatrixXd V_k = svd.matrixV().leftCols(k);
 
+    // Reconstrucao aproximada
+    MatrixXd A_reconstruida = U_k * S_k * V_k.transpose();
+
+    // Norrmaliza os valores para 0-255
+    A_reconstruida = A_reconstruida.cwiseMax(0).cwiseMin(255);
+
+    // Converte para imagem openCV 
+    Mat img_out(rows,cols, CV_8U);
+    for(int i = 0; i < rows; ++i)
+        for(int j = 0; j < cols; ++j)
+            img_out.at<uchar>(i,j)=static_cast<uchar>(A_reconstruida(i,j));
+
+    imwrite("imagem_comprimida.jpg",img_out);
+    cout << "Imagem comprimida salva como 'imagem_comprimida.jpg'\n";
 
     return 0;
 }
