@@ -11,5 +11,12 @@ int main(){
          6, 167, -68,
         -4, 24, -41;
 
+        HouseholderQR<Matrix3d> qr(A);
+        Matrix3d Q = qr.householderQ();
+        Matrix3d R = qr.matrixQR().triangularView<Upper>();
+
+        cout << "Matriz A:\n"<<A<<endl<<endl;
+        cout << "Matriz Q (ortogonal):\n"<<Q<<endl<<endl;
+        cout << "Matriz R (triangular superior):\n"<<R<<endl<<endl;
     return 0;
 }
