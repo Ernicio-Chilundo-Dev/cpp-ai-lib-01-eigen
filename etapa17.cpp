@@ -32,7 +32,21 @@ int main(){
     auto S = svd.singularValues().asDiagonal();
     auto Vt = svd.matrixV();
 
-    
+    int k;
+    cout << "Quantos valores singulares voce quer usar para a reconstrucao: ";
+    cin >> k;
+
+    if(k <=0 || k>S.rows()){
+        cout << "Numero invalido. Usando todos valores singulares.\n";
+        k=S.rows();
+    }
+
+    MatrixXd U_k = U.leftCols(k);
+    MatrixXd S_k = S.topLeftCorner(k, k);
+    MatrixXd Vt_k = Vt.topRows(k);
+    MatrixXd A_prox = U_k * S_k * Vt_k;
+
+    cout << "Matriz reconstruida com "<< k<< " componentes:\n"<<A_prox<<endl;
 
 
 
