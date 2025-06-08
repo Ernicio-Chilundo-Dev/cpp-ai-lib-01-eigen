@@ -27,7 +27,7 @@ int main(){
         LLT<Matrix3d> lltOfA(B);
         Matrix3d L = lltOfA.matrixL();
 
-        cout << "Matriz A:\n"<<A<<"\n\n";
+        cout << "Matriz B:\n"<<B<<"\n\n";
         cout << "Matriz L (Trriangular inferior):\n"<<L<<"\n\n";
         cout << "Reconstrucao A = L * Lᵗ:\n"<<L * L.transpose()<<endl<<endl;
 
