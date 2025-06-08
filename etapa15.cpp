@@ -40,10 +40,10 @@ int main(){
 
         JacobiSVD<MatrixXd> svd(C, ComputeThinU | ComputeThinV);
 
-        cout << "Matriz C:\n"<<C<<"\n\n";
-        cout << "Matriz U:\n" << svd.matrixU()<<"\n\n";
-        cout << "Valores de sigularidade:\n" << svd.singularValues()<<"\n\n";
-        cout << "Matriz Vᵗ:\n" << svd.matrixV().transpose()<<"\n\n";
+            cout << "Matriz A:\n" << C << "\n\n";
+            cout << "Matriz U:\n" << svd.matrixU() << "\n\n";
+            cout << "Valores singulares:\n" << svd.singularValues() << "\n\n";
+            cout << "Matriz Vᵗ:\n" << svd.matrixV().transpose() << "\n\n";
 
 
 
