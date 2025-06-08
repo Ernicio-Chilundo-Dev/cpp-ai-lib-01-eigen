@@ -29,7 +29,23 @@ int main(){
 
         cout << "Matriz B:\n"<<B<<"\n\n";
         cout << "Matriz L (Trriangular inferior):\n"<<L<<"\n\n";
-        cout << "Reconstrucao A = L * Lᵗ:\n"<<L * L.transpose()<<endl<<endl;
+        cout << "Reconstrucao B = L * Lᵗ:\n"<<L * L.transpose()<<endl<<endl;
+
+
+
+        cout << "=================================SVD===============================\n";
+        MatrixXd C;
+        C  << 1, 0, 0,
+              0, 1, 0;
+
+        JacobiSVD<MatrixXd> svd(C, ComputeThinU | ComputeThinV);
+
+        cout << "Matriz C:\n"<<C<<"\n\n";
+        cout << "Matriz U:\n" << svd.matrixU()<<"\n\n";
+        cout << "Valores de sigularidade:\n" << svd.singularValues()<<"\n\n";
+        cout << "Matriz Vᵗ:\n" << svd.matrixV().transpose()<<"\n\n";
+
+
 
  return 0;
 }
