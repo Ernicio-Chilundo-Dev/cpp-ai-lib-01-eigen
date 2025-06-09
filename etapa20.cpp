@@ -46,4 +46,25 @@ int mai(){
     // Calcular centros de cada class
     RowVectorXd centro_A = A_proj.colwise().mean();
     RowVectorXd centro_B = B_proj.colwise().mean();
+
+    // Nova amostra (fora do treino)
+    RowVectorXd nova(1.9,2.5);
+    RowVectorXd nova_centralizada = nova - media;
+    RowVectorXd nova_proj = nova_centralizada * componentes.leftCols(1);
+
+    // Distancias
+    double dA = distancia(nova_proj, centro_A);
+    double dB = distancia(nova_proj, centro_B);
+
+    cout << "📍 Nova amostra projetada: " << nova_proj << "\n";
+    cout << "📏 Distância até Classe A: " << dA << "\n";
+    cout << "📏 Distância até Classe B: " << dB << "\n";
+
+    if (dA < dB)
+        cout << "✅ Classificação: Classe A\n";
+    else
+        cout << "✅ Classificação: Classe B\n";
+
+
+    return 0;
 }
