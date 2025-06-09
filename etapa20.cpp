@@ -26,8 +26,16 @@ int mai(){
     MatrixXd dados(6,2);
     dados << A, B;
 
-    //centralizar
+    // centralizar
     RowVectorXd media = dados.colwise().mean();
     MatrixXd centralizado = dados.rowwise() - media;
+
+    // PCA 
+    MatrixXd cov = (centralizado.adjoint() * centralizado) / double(dados.rows() -1);
+    SelfAdjointEigenSolver <MatrixXd> es(cov);
+    MatrixXd componentes =es.eigenvectors().rowwise().reverse();
+
+    // Projetar os dados 1D
+    MatrixXd projetado = centralizado * componentes.leftCols(1);
     return 0;
 }
