@@ -37,5 +37,11 @@ int mai(){
 
     // Projetar os dados 1D
     MatrixXd projetado = centralizado * componentes.leftCols(1);
-    return 0;
+    
+
+    // Separar novamente 
+    MatrixXd A_proj = projetado.topRows(3);
+    MatrixXd B_proj = projetado.bottomRows(3);
+
+    
 }
