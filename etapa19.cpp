@@ -23,5 +23,10 @@ int main(){
     //Passo 2: calcular a matriz da covariancia
     MatrixXd cov = (centralizado.adjoint() * centralizado) / double(dados.rows() -1);
 
+    //Passo 3: calcular autovalores e autovetores
+    SelfAdjointEigenSolver <MatrixXd> es(cov);
+    MatrixXd autovetores = es.eigenvectors().rowwise().reverse();
+    VectorXd autovalores = es.eigenvalues().reverse();
+
     return 0;
 }
