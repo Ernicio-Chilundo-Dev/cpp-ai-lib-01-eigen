@@ -18,7 +18,10 @@ int main(){
 
     //Passo 1 centralizar os dados (subtrair a media)
     RowVectorXd media = dados.colwise().mean();
-    MatrixXd centralizado = dados.rowwise() - media ;
+    MatrixXd centralizado = dados.rowwise() - media;
+
+    //Passo 2: calcular a matriz da covariancia
+    MatrixXd cov = (centralizado.adjoint() * centralizado) / double(dados.rows() -1);
 
     return 0;
 }
