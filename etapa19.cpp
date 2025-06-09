@@ -28,5 +28,11 @@ int main(){
     MatrixXd autovetores = es.eigenvectors().rowwise().reverse();
     VectorXd autovalores = es.eigenvalues().reverse();
 
+    cout << "Autovalores:\n" << autovalores <<endl;
+    cout << "Autovetores (componentes principais):\n" << autovetores << "\n\n";
+
+    // Passo 4: Projetar os dados nas componentes principais
+    MatrixXd Projetado = centralizado * autovetores;
+    cout << "Dados reduzidos (PCA):\n" << Projetado << endl;
     return 0;
 }
