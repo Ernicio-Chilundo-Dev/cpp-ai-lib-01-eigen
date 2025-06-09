@@ -5,12 +5,12 @@
 using namespace std;
 using namespace Eigen;
 
-double distancia(const RowVectorXd& a, RowVectorXd& b){
+double distancia(const RowVectorXd& a, const RowVectorXd& b) {
     return (a - b).norm();
 }
 
-int mai(){
-      // Classe A (3 amostras 2D)
+int main() {
+    // Classe A (3 amostras 2D)
     MatrixXd A(3, 2);
     A << 2.5, 2.4,
          2.2, 2.9,
@@ -22,37 +22,36 @@ int mai(){
          1.0, 1.1,
          0.8, 0.6;
 
-    // Unir dados
-    MatrixXd dados(6,2);
+    // Unir os dados
+    MatrixXd dados(6, 2);
     dados << A, B;
 
-    // centralizar
+    // Centralizar
     RowVectorXd media = dados.colwise().mean();
     MatrixXd centralizado = dados.rowwise() - media;
 
-    // PCA 
-    MatrixXd cov = (centralizado.adjoint() * centralizado) / double(dados.rows() -1);
-    SelfAdjointEigenSolver <MatrixXd> es(cov);
-    MatrixXd componentes =es.eigenvectors().rowwise().reverse();
+    // PCA
+    MatrixXd cov = (centralizado.adjoint() * centralizado) / double(dados.rows() - 1);
+    SelfAdjointEigenSolver<MatrixXd> es(cov);
+    MatrixXd componentes = es.eigenvectors().rowwise().reverse();
 
-    // Projetar os dados 1D
-    MatrixXd projetado = centralizado * componentes.leftCols(1);
-    
+    // Projetar os dados para 1D
+    MatrixXd projetado = centralizado * componentes.leftCols(1); // só 1 componente
 
-    // Separar novamente 
+    // Separar novamente
     MatrixXd A_proj = projetado.topRows(3);
     MatrixXd B_proj = projetado.bottomRows(3);
 
-    // Calcular centros de cada class
+    // Calcular centros de cada classe
     RowVectorXd centro_A = A_proj.colwise().mean();
     RowVectorXd centro_B = B_proj.colwise().mean();
 
     // Nova amostra (fora do treino)
-    RowVectorXd nova(1.9,2.5);
+    RowVector2d nova(1.9, 2.5);
     RowVectorXd nova_centralizada = nova - media;
     RowVectorXd nova_proj = nova_centralizada * componentes.leftCols(1);
 
-    // Distancias
+    // Distâncias
     double dA = distancia(nova_proj, centro_A);
     double dB = distancia(nova_proj, centro_B);
 
@@ -64,7 +63,6 @@ int mai(){
         cout << "✅ Classificação: Classe A\n";
     else
         cout << "✅ Classificação: Classe B\n";
-
 
     return 0;
 }
