@@ -43,5 +43,7 @@ int mai(){
     MatrixXd A_proj = projetado.topRows(3);
     MatrixXd B_proj = projetado.bottomRows(3);
 
-    
+    // Calcular centros de cada class
+    RowVectorXd centro_A = A_proj.colwise().mean();
+    RowVectorXd centro_B = B_proj.colwise().mean();
 }
