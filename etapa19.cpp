@@ -16,5 +16,9 @@ int main(){
 
     cout << "Dados originais:\n" << dados << endl;
 
+    //Passo 1 centralizar os dados (subtrair a media)
+    RowVectorXd media = dados.colwise().mean();
+    MatrixXd centralizado = dados.rowwise() - media ;
+
     return 0;
 }
